@@ -3,112 +3,133 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Zakaria BAGAYA, développeur à Toulouse : Créneau, Veille IA Tech, Worlder.">
+<meta name="description" content="Zakaria BAGAYA, élève ingénieur systèmes embarqués et IoT critiques (ENSEEIHT, Toulouse) : réseaux, sécurité, cloud, projets.">
+<meta property="og:title" content="Zakaria BAGAYA">
+<meta property="og:image" content="https://zakiscodes.github.io/photo.jpg">
 <title>Zakaria Bagaya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Mise en page : une grille d'agenda (créneaux horaires) sert de fil conducteur ; chaque projet occupe un créneau. */
+/* Mise en page : une colonne de dates à gauche (comme une frise), le contenu à droite ; le bordeaux de la photo sert d'accent. */
 :root{
-  --bg:#eef0f3; --surface:#ffffff; --ink:#14161c; --muted:#5b6170; --line:#d6dae1;
-  --accent:#c97a00; --accent-soft:#f6e6c8; --ok:#2f7d4f; --wip:#8a5a00;
+  --bg:#f0f1f4; --surface:#ffffff; --ink:#15161b; --muted:#5d6271; --line:#d8dbe2;
+  --accent:#8e2239; --accent-ink:#ffffff; --accent-soft:#f5e4e8; --ok:#2f7d4f;
   --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
   --body:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,"Cascadia Code",Consolas,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#101217; --surface:#181b22; --ink:#eceef2; --muted:#9aa1b0; --line:#2a2f3a;
-  --accent:#f0a32a; --accent-soft:#3a2a0e; --ok:#6cc792; --wip:#f0b65a; color-scheme:dark}}
+  --bg:#111217; --surface:#191b22; --ink:#eceef2; --muted:#9ca2b1; --line:#2b2f3a;
+  --accent:#e2768c; --accent-ink:#1a0b10; --accent-soft:#3a1720; --ok:#6cc792; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#101217; --surface:#181b22; --ink:#eceef2; --muted:#9aa1b0; --line:#2a2f3a;
-  --accent:#f0a32a; --accent-soft:#3a2a0e; --ok:#6cc792; --wip:#f0b65a; color-scheme:dark}
+  --bg:#111217; --surface:#191b22; --ink:#eceef2; --muted:#9ca2b1; --line:#2b2f3a;
+  --accent:#e2768c; --accent-ink:#1a0b10; --accent-soft:#3a1720; --ok:#6cc792; color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.wrap{max-width:1040px;margin:0 auto;padding-block:48px 72px;display:flex;flex-direction:column;gap:88px}
+.wrap{max-width:1060px;margin:0 auto;padding-block:40px 64px;display:flex;flex-direction:column;gap:84px}
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 .label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.05}
+p{margin:0}
 
 /* En-tête */
 .top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.clock{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;display:flex;gap:8px;align-items:center}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 20%,transparent)}
+.top nav{display:flex;gap:18px;flex-wrap:wrap}
+.top nav a{font-family:var(--mono);font-size:13px;color:var(--muted);text-decoration:none}
+.top nav a:hover{color:var(--accent)}
 
 /* Hero */
-.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:end}
-.hero h1{font-size:clamp(48px,9vw,104px);font-weight:800;letter-spacing:-.035em}
+.hero{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:center}
+.photo{width:100%;max-width:260px;aspect-ratio:3/4;object-fit:cover;border-radius:18px;display:block;background:var(--line)}
+.hero-text{display:flex;flex-direction:column;gap:18px;min-width:0}
+.hero h1{font-size:clamp(46px,8.5vw,96px);font-weight:800;letter-spacing:-.035em}
 .hero h1 span{color:var(--accent)}
-.hero p{font-size:19px;color:var(--muted);max-width:30ch;margin:20px 0 0}
-.facts{display:grid;gap:0;border-top:1px solid var(--line)}
-.fact{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
-.fact b{font-weight:600}
-.fact .label{padding-top:2px}
+.role{font-family:var(--display);font-size:clamp(19px,2.4vw,24px);font-weight:500}
+.hero p.lead{color:var(--muted);max-width:56ch;font-size:17px}
+.status{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;font-size:14px;font-weight:500;
+  background:var(--accent-soft);color:var(--ink);padding:8px 14px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 22%,transparent)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--muted)}
+.facts b{color:var(--ink);font-weight:600}
 
-/* Agenda des projets */
-.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:28px}
-.sec-head h2{font-size:clamp(32px,5vw,48px);font-weight:700;letter-spacing:-.02em}
-.agenda{display:grid;grid-template-columns:72px 1fr;border-top:1px solid var(--line)}
-.slot-time{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:22px;font-variant-numeric:tabular-nums;border-bottom:1px solid var(--line)}
-.slot{border-bottom:1px solid var(--line);padding:18px 0 22px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;display:grid;grid-template-columns:1fr auto;gap:8px 24px;
+/* Titres de section */
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.sec-head h2{font-size:clamp(32px,5vw,46px);font-weight:700;letter-spacing:-.02em}
+
+/* Frise */
+.timeline{display:grid;grid-template-columns:150px 1fr;border-top:1px solid var(--line)}
+.when{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:24px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums;line-height:1.5}
+.what{border-bottom:1px solid var(--line);padding:20px 0 24px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.what h3{font-size:23px;font-weight:700;letter-spacing:-.01em}
+.org{font-weight:600;font-size:15px}
+.org span{color:var(--muted);font-weight:400}
+.what ul{margin:4px 0 0;padding-left:18px;color:var(--muted);display:flex;flex-direction:column;gap:4px;max-width:68ch}
+.what ul b{color:var(--ink);font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tags span{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:6px;padding:2px 8px}
+.kpi{display:inline-flex;align-items:baseline;gap:10px;margin-top:6px;align-self:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.kpi b{font-family:var(--display);font-size:28px;color:var(--accent);font-variant-numeric:tabular-nums}
+.kpi span{font-size:13px;color:var(--muted)}
+
+/* Projets */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0;
   transition:transform .25s ease,border-color .25s ease}
 .card:hover{transform:translateY(-3px);border-color:var(--accent)}
-.card.main{border-left:6px solid var(--accent)}
-.card h3{font-size:28px;font-weight:700;letter-spacing:-.01em}
-.card .desc{grid-column:1/-1;margin:4px 0 0;color:var(--muted);max-width:62ch}
-.pill{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;align-self:start;white-space:nowrap}
-.pill.ok{color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
-.pill.wip{color:var(--wip);background:var(--accent-soft)}
-.feats{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0;padding:0;list-style:none}
-.feats li{font-size:13px;border:1px solid var(--line);border-radius:8px;padding:4px 10px}
-.stack{grid-column:1/-1;font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:10px}
-.stack b{color:var(--ink);font-weight:500}
+.card .head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.card h3{font-size:24px;font-weight:700}
+.card .kind{font-size:14px;color:var(--accent);font-weight:600}
+.card ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px;display:flex;flex-direction:column;gap:3px}
+.pill{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap;color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
 
-/* Savoir-faire */
-.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.skill{border-top:3px solid var(--ink);padding-top:16px;display:flex;flex-direction:column;gap:10px}
-.skill h3{font-size:22px;font-weight:700}
-.skill ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:15px}
+/* Compétences */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 24px}
+.skill{border-top:3px solid var(--ink);padding-top:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.skill h3{font-size:20px;font-weight:700}
+.skill dl{margin:0;display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+.skill dt{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.skill dd{margin:0 0 4px}
 
-/* Méthode */
-.method{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:m}
-.step{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:6px}
-.step .label{color:var(--accent)}
-.step b{font-family:var(--display);font-size:19px}
-.step span{font-size:14px;color:var(--muted)}
+/* Plus */
+.more{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.box h3{font-size:19px;font-weight:700}
+.box ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.lvl{display:flex;justify-content:space-between;gap:12px}
+.lvl span{color:var(--muted);font-size:14px}
 
 /* Contact */
 .contact{background:var(--ink);color:var(--bg);border-radius:20px;padding:40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.contact h2{font-size:clamp(30px,5vw,44px);font-weight:800;letter-spacing:-.02em}
-.contact .links{display:flex;gap:12px;flex-wrap:wrap}
-.btn{font:500 14px var(--mono);border:1px solid color-mix(in srgb,var(--bg) 40%,transparent);color:var(--bg);background:transparent;border-radius:999px;padding:10px 18px;text-decoration:none;cursor:pointer;transition:background .2s,color .2s}
-.btn:hover{background:var(--accent);border-color:var(--accent);color:#14161c}
-.btn.solid{background:var(--accent);border-color:var(--accent);color:#14161c}
+.contact h2{font-size:clamp(28px,4.6vw,42px);font-weight:800;letter-spacing:-.02em}
+.contact p{color:color-mix(in srgb,var(--bg) 70%,var(--ink));margin-top:8px;font-family:var(--mono);font-size:14px;user-select:all;word-break:break-all}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.btn{font:500 14px var(--mono);border:1px solid color-mix(in srgb,var(--bg) 40%,transparent);color:var(--bg);background:transparent;border-radius:999px;padding:10px 18px;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.solid{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 footer{text-align:center;font-family:var(--mono);font-size:12px;color:var(--muted)}
 
-/* Apparition */
 @media (prefers-reduced-motion:no-preference){
   .rise{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
-  .rise:nth-child(2){animation-delay:.08s}.rise:nth-child(3){animation-delay:.16s}
+  .rise:nth-child(2){animation-delay:.08s}
   @keyframes rise{from{transform:translateY(12px)}to{transform:none}}
 }
-
-@media (max-width:820px){
-  .hero{grid-template-columns:1fr;gap:32px}
-  .skills{grid-template-columns:1fr}
-  .method{grid-template-columns:1fr 1fr}
+@media (max-width:860px){
+  .hero{grid-template-columns:180px 1fr;gap:28px}
+  .skills,.more{grid-template-columns:1fr 1fr}
+  .projects{grid-template-columns:1fr}
 }
-@media (max-width:520px){
-  .wrap{gap:64px;padding-block:28px 48px}
-  .agenda{grid-template-columns:1fr}
-  .slot-time{border-bottom:0;padding-top:14px}
-  .slot{padding-top:6px}
-  .card{grid-template-columns:1fr;padding:20px}
-  .pill{justify-self:start}
-  .method{grid-template-columns:1fr}
+@media (max-width:560px){
+  .wrap{gap:60px;padding-block:24px 44px}
+  .top nav{display:none}
+  .hero{grid-template-columns:1fr}
+  .photo{max-width:200px}
+  .timeline{grid-template-columns:1fr}
+  .when{border-bottom:0;padding-top:16px}
+  .what{padding-top:6px}
+  .skills,.more{grid-template-columns:1fr}
   .contact{padding:28px}
 }
 </style>
@@ -117,115 +138,169 @@ footer{text-align:center;font-family:var(--mono);font-size:12px;color:var(--mute
 
 <div class="wrap">
   <header class="top">
-    <span class="label">Portfolio · 2026</span>
-    <span class="clock"><span class="dot"></span><span id="clock">Toulouse</span></span>
+    <span class="label">Zakaria BAGAYA · Portfolio</span>
+    <nav aria-label="Sections">
+      <a href="#experiences">Expériences</a><a href="#projets">Projets</a><a href="#competences">Compétences</a><a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <section class="hero">
-    <div class="rise">
+    <img class="photo rise" src="photo.jpg" alt="Portrait de Zakaria BAGAYA" width="450" height="600">
+    <div class="hero-text rise">
       <h1>Zakaria<br>BAGAYA<span>.</span></h1>
-      <p>Je conçois et code des applications utiles, de l'idée à la mise en ligne.</p>
-    </div>
-    <div class="facts rise">
-      <div class="fact"><span class="label">Rôle</span><b>Développeur produit</b></div>
-      <div class="fact"><span class="label">Base</span><b>Toulouse, France</b></div>
-      <div class="fact"><span class="label">Langues</span><b>Français · Anglais</b></div>
-      <div class="fact"><span class="label">Spécialité</span><b>Web, mobile, IA appliquée</b></div>
-      <div class="fact"><span class="label">GitHub</span><b>zakisCodes</b></div>
+      <p class="role">Élève ingénieur systèmes embarqués &amp; IoT critiques · Toulouse INP-ENSEEIHT</p>
+      <p class="lead">Formé aux réseaux, à la sécurité et au cloud, je conçois des infrastructures de bout en bout et je code mes propres applications.</p>
+      <span class="status"><span class="dot"></span>Recherche un stage · été 2027</span>
+      <div class="facts"><span><b>Toulouse</b> 31200</span><span><b>Français</b> · Anglais · Espagnol</span><span>Permis <b>A, B</b></span></div>
     </div>
   </section>
 
-  <section>
-    <div class="sec-head">
-      <h2>Projets</h2>
-      <span class="label">3 produits en cours</span>
-    </div>
-    <div class="agenda">
-      <div class="slot-time">08:00</div>
-      <div class="slot">
-        <article class="card main rise">
-          <h3>Créneau</h3>
-          <span class="pill wip">Bêta privée</span>
-          <p class="desc">Appli d'organisation : on écrit une phrase comme « Révision 2h demain soir » et la tâche trouve sa place dans l'agenda. Salle de travail chronométrée, plan d'études, projets partagés.</p>
-          <ul class="feats">
-            <li>Saisie en langage naturel</li><li>Import d'agenda .ics</li><li>Salle de travail à jalons</li><li>Plan d'études</li><li>Collaboration</li><li>Revue de presse</li>
-          </ul>
-          <div class="stack"><b>Expo</b> · React Native · TypeScript · Supabase · Cloudflare Pages · 180+ commits</div>
-        </article>
+  <section id="experiences">
+    <div class="sec-head"><h2>Expériences</h2><span class="label">3 stages</span></div>
+    <div class="timeline">
+      <div class="when">Janv. – mai 2026</div>
+      <div class="what">
+        <h3>Ingénieur Réseaux, Systèmes &amp; Virtualisation</h3>
+        <span class="org">ARONE <span>· Casablanca · Stage de fin d'études</span></span>
+        <ul>
+          <li><b>Architecture SD-WAN open source multi-sites</b> : conception, déploiement et évaluation.</li>
+          <li>Fabric de 4 routeurs VyOS, overlay WireGuard, FRRouting (OSPF, iBGP Route-Reflector, BFD), DSCP/PBR/HTB et Local Internet Breakout.</li>
+          <li>Configuration as Code (NetBox, Ansible, ZTP) et observabilité Prometheus, Grafana, Loki, Alertmanager.</li>
+        </ul>
+        <div class="kpi"><b>3 min 36 s</b><span>pour provisionner un nouveau site</span></div>
       </div>
 
-      <div class="slot-time">11:00</div>
-      <div class="slot">
-        <article class="card rise">
-          <h3>Veille IA Tech</h3>
-          <span class="pill ok">En service</span>
-          <p class="desc">Bot de veille sur l'économie de la tech : 76 sources en 8 langues, tri par IA, brouillons de posts en français envoyés sur Telegram. La publication reste humaine.</p>
-          <ul class="feats">
-            <li>RSS et Google News</li><li>Déduplication</li><li>Contrôle des chiffres</li><li>Niveau de certitude par source</li><li>Éditions à heure fixe</li>
-          </ul>
-          <div class="stack"><b>Python</b> · SQLite · python-telegram-bot · Gemini · Groq · Claude</div>
-        </article>
+      <div class="when">Août – oct. 2025</div>
+      <div class="what">
+        <h3>Assistant Ingénieur Systèmes &amp; Virtualisation</h3>
+        <span class="org">OLAMAGRI SECO <span>· Côte d'Ivoire · Stage</span></span>
+        <ul>
+          <li><b>Infrastructure virtualisée complète</b> sur VMware : ESXi, vCenter, cluster HA/DRS.</li>
+          <li>Environnement imbriqué : 2 hyperviseurs ESXi, vCenter, stockage partagé FreeNAS (iSCSI/NFS), Windows Server 2025.</li>
+          <li>Pare-feu OPNsense : NAT, VLAN, VPN.</li>
+        </ul>
       </div>
 
-      <div class="slot-time">14:30</div>
-      <div class="slot">
-        <article class="card rise">
-          <h3>Worlder</h3>
-          <span class="pill wip">Prototype</span>
-          <p class="desc">Appli d'apprentissage des langues : chaque unité part d'une conversation cible, puis des exercices chronométrés débloquent la suite. Du A1 au A2 en 16 unités.</p>
-          <ul class="feats">
-            <li>Salles à vitesse adaptative</li><li>Mises en situation</li><li>Correction par règles</li><li>Rappels espacés</li>
-          </ul>
-          <div class="stack"><b>Expo</b> · TypeScript · AsyncStorage</div>
-        </article>
+      <div class="when">Août – oct. 2024</div>
+      <div class="what">
+        <h3>Assistant Ingénieur Réseaux &amp; Sécurité</h3>
+        <span class="org">UNION IT SERVICES <span>· Casablanca · Stage</span></span>
+        <ul>
+          <li>Réseau MPLS opérateur sur GNS3.</li>
+          <li>Pare-feux Fortigate et VPN MPLS.</li>
+          <li>Tests et débogage.</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="sec-head"><h2>Savoir-faire</h2></div>
+  <section id="projets">
+    <div class="sec-head"><h2>Projets personnels</h2><a class="label" href="https://bit.ly/mesProjets_Zakaria" target="_blank" rel="noopener">Tous mes projets ↗</a></div>
+    <div class="projects">
+      <article class="card">
+        <div class="head"><div><h3>Créneau</h3><span class="kind">Planning et gestion de projets</span></div><span class="pill">Bêta</span></div>
+        <ul><li>Planning rempli en langage naturel</li><li>Projets partagés et prise de notes</li><li>Flux RSS pour rester informé</li></ul>
+        <div class="tags"><span>React Native</span><span>TypeScript</span><span>Supabase</span></div>
+      </article>
+      <article class="card">
+        <div class="head"><div><h3>wAfreight</h3><span class="kind">Marketplace logistique</span></div></div>
+        <ul><li>Transport routier de marchandises en Afrique de l'Ouest</li><li>Offre, négociation, acceptation de la commande</li><li>Suivi du trajet en temps réel</li></ul>
+      </article>
+      <article class="card">
+        <div class="head"><div><h3>AutoFillPro</h3><span class="kind">Extension de remplissage automatique</span></div></div>
+        <ul><li>Formulaires simples et avancés, modes gratuit et payant</li><li>Données aléatoires, gestion des mots de passe</li><li>Fiches produit et candidatures remplies par IA</li></ul>
+      </article>
+      <article class="card">
+        <div class="head"><div><h3>Veille IA Tech</h3><span class="kind">Bot de veille et de rédaction</span></div><span class="pill">En service</span></div>
+        <ul><li>76 sources en 8 langues, tri par IA</li><li>Brouillons de posts envoyés sur Telegram</li><li>Contrôle automatique des chiffres</li></ul>
+        <div class="tags"><span>Python</span><span>SQLite</span><span>LLM</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="competences">
+    <div class="sec-head"><h2>Compétences</h2></div>
     <div class="skills">
-      <div class="skill">
-        <h3>Applications</h3>
-        <ul><li>React Native et Expo</li><li>TypeScript</li><li>Interfaces animées, mobile d'abord</li><li>Traduction et fuseaux horaires</li></ul>
+      <div class="skill"><h3>Réseaux</h3><dl>
+        <dt>Routage</dt><dd>IGP, EGP · niveau CCNP</dd>
+        <dt>Accès</dt><dd>SD-WAN, Wi-Fi</dd>
+        <dt>Orchestration</dt><dd>NetBox, Ansible</dd>
+        <dt>Outils</dt><dd>GNS3, VyOS, EVE-NG</dd></dl></div>
+      <div class="skill"><h3>Sécurité</h3><dl>
+        <dt>Pare-feu</dt><dd>Fortigate, OPNsense</dd>
+        <dt>VPN</dt><dd>IPsec, MPLS/VPN, WireGuard</dd>
+        <dt>Supervision</dt><dd>Nagios, Grafana, Prometheus, Loki, Alertmanager</dd></dl></div>
+      <div class="skill"><h3>Systèmes</h3><dl>
+        <dt>OS</dt><dd>Windows Server, Ubuntu, Debian, Kali Linux</dd>
+        <dt>Virtualisation</dt><dd>VMware ESXi et vCenter, Hyper-V, Proxmox VE</dd>
+        <dt>Stockage</dt><dd>iSCSI, NFS</dd></dl></div>
+      <div class="skill"><h3>Cloud</h3><dl>
+        <dt>Azure</dt><dd>AZ-104, AZ-800, AI-900</dd>
+        <dt>AWS</dt><dd>Cloud Practitioner</dd></dl></div>
+      <div class="skill"><h3>Programmation</h3><dl>
+        <dt>Langages</dt><dd>Python, C, Java, JavaScript</dd>
+        <dt>Web</dt><dd>React, Node.js</dd>
+        <dt>Bases de données</dt><dd>MySQL, Oracle, PostgreSQL</dd></dl></div>
+      <div class="skill"><h3>Savoir-être</h3><dl>
+        <dt>Méthode</dt><dd>Rigueur, gestion de projets</dd>
+        <dt>Équipe</dt><dd>Écoute, travail d'équipe, adaptabilité</dd>
+        <dt>Esprit</dt><dd>Curiosité intellectuelle</dd></dl></div>
+    </div>
+  </section>
+
+  <section id="formation">
+    <div class="sec-head"><h2>Formation</h2></div>
+    <div class="timeline">
+      <div class="when">Sept. 2026 – juin 2028</div>
+      <div class="what">
+        <h3>Cycle ingénieur systèmes embarqués &amp; IoT critiques</h3>
+        <span class="org">Toulouse INP – ENSEEIHT <span>· Toulouse</span></span>
       </div>
-      <div class="skill">
-        <h3>Back-end</h3>
-        <ul><li>Python</li><li>Supabase, SQLite</li><li>Bots Telegram</li><li>Déploiement Cloudflare</li></ul>
-      </div>
-      <div class="skill">
-        <h3>IA appliquée</h3>
-        <ul><li>Tri et rédaction par LLM</li><li>Sorties JSON fiables</li><li>Contrôles sans IA en sortie</li><li>Coûts maîtrisés</li></ul>
+      <div class="when">Sept. 2023 – juin 2026</div>
+      <div class="what">
+        <h3>Cycle ingénieur Réseaux, Systèmes, Sécurité et Cloud</h3>
+        <span class="org">École Supérieure en Ingénierie, Management et Génie Civil (ex-ESTEM) <span>· Casablanca</span></span>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="sec-head"><h2>Méthode</h2></div>
-    <div class="method">
-      <div class="step"><span class="label">Étape 1</span><b>Logique d'abord</b><span>On fixe les règles avant d'écrire le code.</span></div>
-      <div class="step"><span class="label">Étape 2</span><b>Petits pas</b><span>Un écran à la fois, testé dans le navigateur.</span></div>
-      <div class="step"><span class="label">Étape 3</span><b>Tests</b><span>Chaque règle nouvelle a son test.</span></div>
-      <div class="step"><span class="label">Étape 4</span><b>Bêta privée</b><span>Mise en ligne seulement après validation.</span></div>
+    <div class="more">
+      <div class="box"><h3>Langues</h3><ul>
+        <li class="lvl">Français <span>Langue maternelle</span></li>
+        <li class="lvl">Anglais <span>Bon niveau</span></li>
+        <li class="lvl">Espagnol <span>Débutant</span></li></ul></div>
+      <div class="box"><h3>Engagement</h3><ul>
+        <li>Président du Club d'Anglais (2025, 2026)</li>
+        <li>Communication de l'Association des Étudiants Ivoiriens de l'ESTEM (2025, 2026)</li></ul></div>
+      <div class="box"><h3>Centres d'intérêt</h3><ul>
+        <li>Football, rugby</li><li>Lecture</li></ul></div>
     </div>
   </section>
 
-  <section class="contact">
-    <h2>Travaillons ensemble.</h2>
+  <section class="contact" id="contact">
+    <div>
+      <h2>Un stage à proposer ?</h2>
+      <p id="mail">Bagzak.bz@gmail.com</p>
+    </div>
     <div class="links">
-      <a class="btn solid" href="https://github.com/zakisCodes" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn solid" href="mailto:Bagzak.bz@gmail.com">Écrire</a>
+      <button class="btn" id="copy" type="button">Copier l'adresse</button>
+      <a class="btn" href="https://github.com/zakisCodes" target="_blank" rel="noopener">GitHub</a>
     </div>
   </section>
 
-  <footer>Zakaria BAGAYA · Toulouse</footer>
+  <footer>Zakaria BAGAYA · Toulouse · 2026</footer>
 </div>
 
 <script>
 (function(){
-  var el=document.getElementById('clock');
-  var fmt=new Intl.DateTimeFormat('fr-FR',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Paris'});
-  function tick(){ el.textContent='Toulouse · '+fmt.format(new Date()); }
-  tick(); setInterval(tick,30000);
+  var b=document.getElementById('copy'), mail='Bagzak.bz@gmail.com';
+  b.addEventListener('click',function(){
+    var done=function(){b.textContent='Copiée';setTimeout(function(){b.textContent="Copier l'adresse"},1800)};
+    var fail=function(){var r=document.createRange();r.selectNodeContents(document.getElementById('mail'));var s=getSelection();s.removeAllRanges();s.addRange(r)};
+    try{navigator.clipboard.writeText(mail).then(done,fail)}catch(e){fail()}
+  });
 })();
 </script>
 </body>
